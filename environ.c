@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _myenv - Prints the current environment.
+ * Myenv - Prints the current environment.
  * @info: Pointer to a structure containing potential arguments. Used to maintain
  *        a constant function prototype.
  * Return: Always 0
  */
-int _myenv(info_t *info)
+int Myenv(info_t *info)
 {
     print_list_str(info->env);
     return (0);
@@ -35,12 +35,12 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Initializes a new environment variable or modifies an existing one.
+ * Mysetenv - Initializes a new environment variable or modifies an existing one.
  * @info: Pointer to a structure containing potential arguments. Used to maintain
  *        a constant function prototype.
  * Return: Always 0
  */
-int _mysetenv(info_t *info)
+int Mysetenv(info_t *info)
 {
     if (info->argc != 3)
     {
@@ -53,12 +53,12 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - Removes an environment variable.
+ * Myunsetenv - Removes an environment variable.
  * @info: Pointer to a structure containing potential arguments. Used to maintain
  *        a constant function prototype.
  * Return: Always 0
  */
-int _myunsetenv(info_t *info)
+int Myunsetenv(info_t *info)
 {
     int i;
 
@@ -74,12 +74,12 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - Populates the environment linked list.
+ * PopEnvList - Populates the environment linked list.
  * @info: Pointer to a structure containing potential arguments. Used to maintain
  *        a constant function prototype.
  * Return: Always 0
  */
-int populate_env_list(info_t *info)
+int PopEnvList(info_t *info)
 {
     list_t *node = NULL;
     size_t i;

@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * get_history_file - Gets the history file.
+ * getHistoryFile - Gets the history file.
  * @info: Parameter struct.
  *
  * Return: Allocated string containing history file.
  */
-char *get_history_file(info_t *info)
+char *getHistoryFile(info_t *info)
 {
     char *history_file_path, *home_directory;
 
@@ -24,12 +24,12 @@ char *get_history_file(info_t *info)
 }
 
 /**
- * write_history - Creates a file or appends to an existing file.
+ * writeHistory - Creates a file or appends to an existing file.
  * @info: The parameter struct.
  *
  * Return: 1 on success, else -1
  */
-int write_history(info_t *info)
+int writeHistory(info_t *info)
 {
     ssize_t file_descriptor;
     char *history_file = get_history_file(info);
@@ -53,12 +53,12 @@ int write_history(info_t *info)
 }
 
 /**
- * read_history - Reads history from a file.
+ * readHistory - Reads history from a file.
  * @info: The parameter struct.
  *
  * Return: Histcount on success, 0 otherwise
  */
-int read_history(info_t *info)
+int readHistory(info_t *info)
 {
     int i, last = 0, line_count = 0;
     ssize_t file_descriptor, read_length, file_size = 0;
@@ -102,14 +102,14 @@ int read_history(info_t *info)
 }
 
 /**
- * build_history_list - Adds an entry to a history linked list.
+ * buildHistory_list - Adds an entry to a history linked list.
  * @info: Structure containing potential arguments. Used to maintain.
  * @buffer: Buffer.
  * @line_count: The history line count, histcount.
  *
  * Return: Always 0.
  */
-int build_history_list(info_t *info, char *buffer, int line_count)
+int buildHistory_list(info_t *info, char *buffer, int line_count)
 {
     list_t *current_node = NULL;
 
@@ -123,12 +123,12 @@ int build_history_list(info_t *info, char *buffer, int line_count)
 }
 
 /**
- * renumber_history - Renumbers the history linked list after changes.
+ * renumberHistory - Renumbers the history linked list after changes.
  * @info: Structure containing potential arguments. Used to maintain.
  *
  * Return: The new histcount.
  */
-int renumber_history(info_t *info)
+int renumberHistory(info_t *info)
 {
     list_t *current_node = info->history;
     int i = 0;

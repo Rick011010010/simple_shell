@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _eputs - Print an input string to stderr.
+ * Eputs - Print an input string to stderr.
  * @str: The string to be printed.
  *
  * Return: Nothing.
  */
-void _eputs(char *str)
+void Eputs(char *str)
 {
     int i = 0;
 
@@ -20,13 +20,13 @@ void _eputs(char *str)
 }
 
 /**
- * _eputchar - Write the character c to stderr.
+ * Eputchar - Write the character c to stderr.
  * @c: The character to print.
  *
  * Return: On success, 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _eputchar(char c)
+int Eputchar(char c)
 {
     static int i;
     static char buffer[WRITE_BUF_SIZE];
@@ -42,14 +42,14 @@ int _eputchar(char c)
 }
 
 /**
- * _putfd - Write the character c to the given file descriptor.
+ * Putfd - Write the character c to the given file descriptor.
  * @c: The character to print.
  * @fd: The file descriptor to write to.
  *
  * Return: On success, 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putfd(char c, int fd)
+int Putfd(char c, int fd)
 {
     static int i;
     static char buffer[WRITE_BUF_SIZE];
@@ -65,13 +65,13 @@ int _putfd(char c, int fd)
 }
 
 /**
- * _putsfd - Print an input string to the given file descriptor.
+ * Putsfd - Print an input string to the given file descriptor.
  * @str: The string to be printed.
  * @fd: The file descriptor to write to.
  *
  * Return: The number of characters written.
  */
-int _putsfd(char *str, int fd)
+int Putsfd(char *str, int fd)
 {
     int count = 0;
 

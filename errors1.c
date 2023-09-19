@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _erratoi - Convert a string to an integer.
+ * _erratoi3 - Convert a string to an integer.
  * @str: The string to be converted.
  * Return: 0 if no numbers in the string, converted number otherwise,
  *         -1 on error.
  */
-int _erratoi(char *str)
+int _erratoi3(char *str)
 {
     int i = 0;
     unsigned long int result = 0;
@@ -29,11 +29,11 @@ int _erratoi(char *str)
 }
 
 /**
- * print_error - Print an error message.
+ * print_error3 - Print an error message.
  * @info: The parameter and return info structure.
  * @error_str: String containing the specified error type.
  */
-void print_error(info_t *info, char *error_str)
+void print_error3(info_t *info, char *error_str)
 {
     _eputs(info->fname);
     _eputs(": ");
@@ -45,12 +45,12 @@ void print_error(info_t *info, char *error_str)
 }
 
 /**
- * print_d - Print a decimal (integer) number (base 10).
+ * print_d3 - Print a decimal (integer) number (base 10).
  * @number: The input number.
  * @fd: The file descriptor to write to.
  * Return: Number of characters printed.
  */
-int print_d(int number, int fd)
+int print_d3(int number, int fd)
 {
     int (*__putchar)(char) = _putchar;
     int i, count = 0;
@@ -83,13 +83,13 @@ int print_d(int number, int fd)
 }
 
 /**
- * convert_number - Converter function, a clone of itoa.
+ * convert_number3 - Converter function, a clone of itoa.
  * @num: The number.
  * @base: The base.
  * @flags: Argument flags.
  * Return: The string representation of the number.
  */
-char *convert_number(long int num, int base, int flags)
+char *convert_number3(long int num, int base, int flags)
 {
     static char *char_set;
     static char buffer[50];
@@ -117,10 +117,10 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - Replace the first instance of '#' with '\0'.
+ * remove_comments3 - Replace the first instance of '#' with '\0'.
  * @str: The address of the string to modify.
  */
-void remove_comments(char *str)
+void remove_comments3(char *str)
 {
     int i;
 
