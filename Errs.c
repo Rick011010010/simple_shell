@@ -3,6 +3,7 @@
 /**
  * _erratoi3 - Convert a string to an integer.
  * @str: The string to be converted.
+ *
  * Return: 0 if no numbers in the string, converted number otherwise,
  *         -1 on error.
  */
@@ -48,6 +49,7 @@ void print_error3(info_t *info, char *error_str)
  * print_d3 - Print a decimal (integer) number (base 10).
  * @number: The input number.
  * @fd: The file descriptor to write to.
+ *
  * Return: Number of characters printed.
  */
 int print_d3(int number, int fd)
@@ -87,6 +89,7 @@ int print_d3(int number, int fd)
  * @num: The number.
  * @base: The base.
  * @flags: Argument flags.
+ *
  * Return: The string representation of the number.
  */
 char *convert_number3(long int num, int base, int flags)
@@ -102,7 +105,9 @@ char *convert_number3(long int num, int base, int flags)
 		n = -num;
 		sign = '-';
 	}
-	char_set = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	char_set = flags & CONVERT_LOWERCASE
+		? "0123456789abcdef"
+		: "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
@@ -133,3 +138,4 @@ void remove_comments3(char *str)
 		}
 	}
 }
+
