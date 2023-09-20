@@ -38,7 +38,7 @@ int _myexit2(info_t *info)
 
 int _mycd2(info_t *info)
 {
-   char *current_dir, *new_dir, buffer[1024];
+	char *current_dir, *new_dir, buffer[1024];
 	int chdir_result;
 
 	current_dir = getcwd(buffer, 1024);
@@ -49,7 +49,7 @@ int _mycd2(info_t *info)
 		new_dir = _getenv(info, "HOME=");
 		if (!new_dir)
 			chdir_result = /* TODO: what should this be? */
-				chdir((new_dir = _getenv(info, "PWD=")) ? new_dir : "/");
+					chdir((new_dir = _getenv(info, "PWD=")) ? new_dir : "/");
 		else
 			chdir_result = chdir(new_dir);
 	}
@@ -63,16 +63,14 @@ int _mycd2(info_t *info)
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
 		chdir_result = /* TODO: what should this be? */
-			chdir((new_dir = _getenv(info, "OLDPWD=")) ? new_dir : "/");
-	}
-	else
+				chdir((new_dir = _getenv(info, "OLDPWD=")) ? new_dir : "/");
+	} else
 		chdir_result = chdir(info->argv[1]);
 	if (chdir_result == -1)
 	{
 		print_error(info, "can't cd to ");
 		_eputs(info->argv[1]), _eputchar('\n');
-	}
-	else
+	} else
 	{
 		_getenv(info, "OLDPWD", _getenv(info, "PWD="));
 		_setenv(info, "PWD", getcwd(buffer, 1024));
@@ -96,4 +94,3 @@ int _myhelp2(info_t *info)
 		_puts(*arguments); /* temp att_unused workaround */
 	return (0);
 }
-
