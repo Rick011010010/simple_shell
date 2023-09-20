@@ -9,7 +9,7 @@
  */
 int Myhtr(info_t *info)
 {
-    print_list(info->history);
+    printList(info->history);
     return (0);
 }
 
@@ -24,13 +24,13 @@ int unset_alias(info_t *info, char *str)
     char *equal_sign, saved_char;
     int ret;
 
-    equal_sign = _strchr(str, '=');
+    equal_sign = _strchr4(str, '=');
     if (!equal_sign)
         return (1);
     saved_char = *equal_sign;
     *equal_sign = '\0';
-    ret = delete_node_at_index(&(info->alias),
-        get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
+    ret = delete_node4(&(info->alias),
+        getNode(info->alias, nodeStarts_with(info->alias, str, -1)));
     *equal_sign = saved_char;
     return (ret);
 }
@@ -45,14 +45,14 @@ int set_alias(info_t *info, char *str)
 {
     char *equal_sign;
 
-    equal_sign = _strchr(str, '=');
+    equal_sign = _strchr4(str, '=');
     if (!equal_sign)
         return (1);
     if (!*++equal_sign)
         return (unset_alias(info, str));
 
     unset_alias(info, str);
-    return (add_node_end(&(info->alias), str, 0) == NULL);
+    return (add_node_end4(&(info->alias), str, 0) == NULL);
 }
 
 /**
@@ -66,11 +66,11 @@ int print_alias(list_t *node)
 
     if (node)
     {
-        equal_sign = _strchr(node->str, '=');
+        equal_sign = _strchr4(node->str, '=');
         for (alias = node->str; alias <= equal_sign; alias++)
-            _putchar(*alias);
+            Eputchar(*alias);
         _putchar('\'');
-        _puts(equal_sign + 1);
+        Eputs(equal_sign + 1);
         _puts("'\n");
         return (0);
     }
@@ -101,11 +101,11 @@ int Myalias(info_t *info)
     }
     for (i = 1; info->argv[i]; i++)
     {
-        equal_sign = _strchr(info->argv[i], '=');
+        equal_sign = _strchr4(info->argv[i], '=');
         if (equal_sign)
             set_alias(info, info->argv[i]);
         else
-            print_alias(node_starts_with(info->alias, info->argv[i], '='));
+            print_alias(nodeStarts_with(info->alias, info->argv[i], '='));
     }
 
     return (0);
