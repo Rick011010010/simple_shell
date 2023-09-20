@@ -133,4 +133,3 @@ void remove_comments3(char *str)
 		}
 	}
 }
-
