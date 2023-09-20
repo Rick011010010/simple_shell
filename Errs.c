@@ -12,7 +12,7 @@ int _erratoi3(char *str)
 	unsigned long int result = 0;
 
 	if (*str == '+')
-		str++;  /* TODO: why does this make main return 255? */
+		str++; /* TODO: why does this make main return 255? */
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] >= '0' && str[i] <= '9')
@@ -133,3 +133,4 @@ void remove_comments3(char *str)
 		}
 	}
 }
+
