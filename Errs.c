@@ -1,141 +1,78 @@
 #include "shell.h"
 
 /**
- * _erratoi3 - Convert a string to an integer.
- * @str: The string to be converted.
+ * _strncpy4 - Copies a string.
+ * @dest: The destination string to be copied to.
+ * @source: The source string.
+ * @n: The number of characters to be copied.
  *
- * Return: 0 if no numbers in the string, converted number otherwise,
- *         -1 on error.
+ * Return: The concatenated string.
  */
-int _erratoi3(char *str)
+char *_strncpy4(char *dest, char *source, int n)
 {
-	int i = 0;
-	unsigned long int result = 0;
+	int i, j;
+	char *result = dest;
 
-	if (*str == '+')
-		str++; /* TODO: why does this make main return 255? */
-	for (i = 0; str[i] != '\0'; i++)
+	i = 0;
+	while (source[i] != '\0' && i < n - 1)
 	{
-		if (str[i] >= '0' && str[i] <= '9')
+		dest[i] = source[i];
+		i++;
+	}
+	if (i < n)
+	{
+		j = i;
+		while (j < n)
 		{
-			result *= 10;
-			result += (str[i] - '0');
-			if (result > INT_MAX)
-				return (-1);
+			dest[j] = '\0';
+			j++;
 		}
-		else
-			return (-1);
 	}
 	return (result);
 }
 
 /**
- * print_error3 - Print an error message.
- * @info: The parameter and return info structure.
- * @error_str: String containing the specified error type.
- */
-void print_error3(info_t *info, char *error_str)
-{
-	_eputs(info->fname);
-	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(error_str);
-}
-
-/**
- * print_d3 - Print a decimal (integer) number (base 10).
- * @number: The input number.
- * @fd: The file descriptor to write to.
+ * _strncat4 - Concatenates two strings.
+ * @dest: The first string.
+ * @source: The second string.
+ * @n: The maximum number of bytes to be used.
  *
- * Return: Number of characters printed.
+ * Return: The concatenated string.
  */
-int print_d3(int number, int fd)
+char *_strncat4(char *dest, char *source, int n)
 {
-	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
-	unsigned int abs_value, current;
+	int i, j;
+	char *result = dest;
 
-	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
-	if (number < 0)
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (source[j] != '\0' && j < n)
 	{
-		abs_value = -number;
-		__putchar('-');
-		count++;
+		dest[i] = source[j];
+		i++;
+		j++;
 	}
-	else
-		abs_value = number;
-	current = abs_value;
-	for (i = 1000000000; i > 1; i /= 10)
-	{
-		if (abs_value / i)
-		{
-			__putchar('0' + current / i);
-			count++;
-		}
-		current %= i;
-	}
-	__putchar('0' + current);
-	count++;
-
-	return (count);
+	if (j < n)
+		dest[i] = '\0';
+	return (result);
 }
 
 /**
- * convert_number3 - Converter function, a clone of itoa.
- * @num: The number.
- * @base: The base.
- * @flags: Argument flags.
+ * _strchr4 - Locates a character in a string.
+ * @str: The string to be parsed.
+ * @c: The character to look for.
  *
- * Return: The string representation of the number.
+ * Return: A pointer to the memory area `str`.
  */
-char *convert_number3(long int num, int base, int flags)
+char *_strchr4(char *str, char c)
 {
-	static char *char_set;
-	static char buffer[50];
-	char sign = 0;
-	char *ptr;
-	unsigned long n = num;
-
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
+	do
 	{
-		n = -num;
-		sign = '-';
-	}
-	char_set = flags & CONVERT_LOWERCASE
-		? "0123456789abcdef"
-		: "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
+		if (*str == c)
+			return (str);
+	} while (*str++ != '\0');
 
-	do {
-		*--ptr = char_set[n % base];
-		n /= base;
-	} while (n != 0);
-
-	if (sign)
-		*--ptr = sign;
-	return (ptr);
+	return (NULL);
 }
-
-/**
- * remove_comments3 - Replace the first instance of '#' with '\0'.
- * @str: The address of the string to modify.
- */
-void remove_comments3(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] == '#' && (!i || str[i - 1] == ' '))
-		{
-			str[i] = '\0';
-			break;
-		}
-	}
-}
-
