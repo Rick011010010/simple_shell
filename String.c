@@ -8,14 +8,14 @@
  */
 int string_length(char *str)
 {
-    int length = 0;
+	int length = 0;
 
-    if (!str)
-        return (0);
+	if (!str)
+		return (0);
 
-    while (*str++)
-        length++;
-    return (length);
+	while (*str++)
+		length++;
+	return (length);
 }
 
 /**
@@ -27,17 +27,17 @@ int string_length(char *str)
  */
 int string_compare(char *str1, char *str2)
 {
-    while (*str1 && *str2)
-    {
-        if (*str1 != *str2)
-            return (*str1 - *str2);
-        str1++;
-        str2++;
-    }
-    if (*str1 == *str2)
-        return (0);
-    else
-        return (*str1 < *str2 ? -1 : 1);
+	while (*str1 && *str2)
+	{
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+	}
+	if (*str1 == *str2)
+		return (0);
+	else
+		return (*str1 < *str2 ? -1 : 1);
 }
 
 /**
@@ -49,10 +49,10 @@ int string_compare(char *str1, char *str2)
  */
 char *starts_with_string(const char *haystack, const char *needle)
 {
-    while (*needle)
-        if (*needle++ != *haystack++)
-            return (NULL);
-    return ((char *)haystack);
+	while (*needle)
+		if (*needle++ != *haystack++)
+			return (NULL);
+	return ((char *) haystack);
 }
 
 /**
@@ -64,13 +64,12 @@ char *starts_with_string(const char *haystack, const char *needle)
  */
 char *string_concatenate(char *destination, char *source)
 {
-    char *result = destination;
+	char *result = destination;
 
-    while (*destination)
-        destination++;
-    while (*source)
-        *destination++ = *source++;
-    *destination = *source;
-    return (result);
+	while (*destination)
+		destination++;
+	while (*source)
+		*destination++ = *source++;
+	*destination = *source;
+	return (result);
 }
-
