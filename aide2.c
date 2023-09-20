@@ -2,8 +2,8 @@
 
 /**
  * _perror - print error
- * @str1: first string
- * @str2: second string
+ * @s1: first string
+ * @s2: second string
  */
 void _perror(const char *s1, const char *s2)
 {

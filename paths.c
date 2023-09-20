@@ -3,7 +3,7 @@
 /**
  * _getenv - retrieves the value of an environment
  * @n: input
- * Return: value of an environment variable
+ * Return: NULL
  */
 char *_getenv(char *n)
 {
@@ -30,6 +30,7 @@ char *_getenv(char *n)
 /**
  * _how - locate the executable file
  * @t: input
+ * Return: Nothing
  */
 int _how(data *t)
 {
@@ -74,6 +75,7 @@ step_out:
  *  or modify an existing one
  * @n: variable name
  * @v: variable value
+ * Return: Nothing
  */
 char *create_new_entry(char *n, char *v)
 {
@@ -94,6 +96,7 @@ char *create_new_entry(char *n, char *v)
  *  or modify an existing one
  * @n: name
  * @v: value
+ * Return: Nothing
  */
 char **_new_environ(char *n, char *v)
 {
@@ -144,6 +147,7 @@ char **_new_environ(char *n, char *v)
  * @t: data
  * @n: name
  * @v: value
+ * Return: Nothing
  */
 int _setenv(data *t, char *n, char *v)
 {
