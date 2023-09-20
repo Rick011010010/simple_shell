@@ -19,38 +19,35 @@
 #define BUFFSIZE 1024
 #define UNUSED __attribute__((unused))
 
-/**
- * data - struct holding program's data
- * @prgNam: program's name
- * @linpntr: line pointer
- * @cmd: command line tokenized
- * @envp: environment
- */
-typedef struct data_t
-{
-	char *prgNam;
-	char **argv;
-	char *linpntr;
-	char **cmd;
-	int cmdSize;
-	int cmdCounter;
-	char **envp;
-	char **alias;
-	int flag;
-	int modo;
-	char *pewd;
-} data_t;
+extern char **environ;
 
 /**
- * create_t - creates names and function
+ * struct data - program's data
+ * @cmd: command
+ * @last_exit_stat: last exit status
+ * @argv: array
+ * @flag: flag
+ * @shell: shell name
+ */
+typedef struct data
+{
+	char **argv;
+	const char *shell;
+	char *cmd;
+	int last_exit_stat;
+	int flag;
+} data;
+
+/**
+ * struct create - creates names and function
  * @cmd: command
  * @f: the create's function
  */
-typedef struct create_t
+typedef struct create
 {
-	char *cmd;
-	int (*f)(data_t*, int);
-} create_t;
+	const char *cmd;
+	void (*f)(data *t);
+} create;
 
 /* create.c */
 int exec_create(data *t);
@@ -62,10 +59,10 @@ void create_cd(data *t);
 
 /* aide.c */
 void _printf(const char *s);
-void free(char **array);
+void free_array(char **array);
 void split(data *t, const char *delim);
 void init(data *t, const char *shell);
-void read(data *t);
+void read_cmd(data *t);
 
 /* aide2.c */
 void _perror(const char *s1, const char *s2);
@@ -75,11 +72,13 @@ void *_realloc(void *p, unsigned int new_size);
 /* handle.c */
 void start_process(data *t);
 void handler_sigint(int sg);
-void _exec(data *t);
+void exec(data *t);
 
 /* path.c */
 char *_getenv(char *n);
 int _how(data *t);
+char *create_new_entry(char *n, char *v);
+char **_new_environ(char *n, char *v);
 int _setenv(data *t, char *n, char *v);
 
 /* strings.c */
