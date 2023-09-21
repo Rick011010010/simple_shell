@@ -46,7 +46,7 @@ void exec(data *t)
 {
 	const char prmpt[] = PROMPT;
 
-	signal(SIGINT, handle);
+	signal(SIGINT, handler_sigint);
 
 	while (1)
 	{
