@@ -60,13 +60,17 @@ void exec(data *t)
 			if (!exec_create(t))
 			{
 				_how(t);
-				if (access(t->argv[0], F_OK) == -1)
+				if (access(t->argv[0], F_OK) == 0)
 				{
 					perror(t->shell);
+					start(t);
 				}
 				else
 				{
-					start(t);
+					_printf(t->shell);
+					_printf(": command not found: ");
+					_printf(t->argv[0]);
+					_printf("\n");
 				}
 			}
 			free_array(t->argv);
