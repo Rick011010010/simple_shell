@@ -62,7 +62,6 @@ void exec(data *t)
 				_how(t);
 				if (access(t->argv[0], F_OK) == 0)
 				{
-					perror(t->shell);
 					start(t);
 				}
 				else
