@@ -110,121 +110,121 @@ typedef struct builtin
 extern char **environ;
 
 
-/* toem_shl.c */
+/* toem_shloop.c */
 int hsh(info_t *, char **);
 int builtin_finder(info_t *);
 void comand_find(info_t *);
 void cmd_fork(info_t *);
 
-/* toem_p.c */
+/* toem_parser.c */
 int command_is(info_t *, char *);
 char *chars_duplicate(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
-/* _loop.c */
+/* hsh_loop.c */
 int hsh_loop(char **);
 
-/* _errors.c */
+/* toem_errors.c */
 void _input(char *);
 int _charputs(char);
 int _rgputs(char c, int fd);
 int _inputsrg(char *str, int fd);
 
-/* _string.c */
+/* toem_string.c */
 int str_lenght(char *);
 int str_computed(char *, char *);
 char *begin(const char *, const char *);
 char *cat_st(char *, char *);
 
-/* _string1.c */
+/* toem_string1.c */
 char *copy_st(char *, char *);
 char *double_st(const char *);
 void put_st(char *);
 int putrg_str(char);
 
-/* _exits.c */
+/* toem_exits.c */
 char *cprg_st(char *, char *, int);
 char *catrg_st(char *, char *, int);
 char *chrfg_st(char *, char);
 
-/* _tokenizer.c */
+/* toem_tokenizer.c */
 char **torg_st(char *, char *);
 char **wrg_st(char *, char);
 
-/* _realloc.c */
+/* toem_realloc.c */
 char *strg_mem(char *, char, unsigned int);
 void frg_st(char **);
 void *_locrg(void *, unsigned int, unsigned int);
 
-/* _memory.c */
+/* toem_memory.c */
 int forfree(void **);
 
-/* _is.c */
+/* toematoi_is.c */
 int inter_active(info_t *);
 int delim_is(char, char *);
 int alpha_is(int);
 int atoi_is(char *);
 
-/* _errors1.c */
+/* toem_errors1.c */
 int toi_err(char *);
 void err_rg(info_t *, char *);
 int dup_prist(int, int);
 char *revert_num(long int, int, int);
 void cmt_rm(char *);
 
-/* builtin.c */
+/* toem_builtin.c */
 int scaprg(info_t *);
 int cmdrt_my(info_t *);
 int hand_st(info_t *);
 
-/* builtin1.c */
+/* toem_builtin1.c */
 int title_my(info_t *);
 int alias_chat(info_t *);
 
-/*getline.c */
+/*toem_getline.c */
 ssize_t rginp_get(info_t *);
 int give_line(info_t *, char **, size_t *);
 void handle_rgst(int);
 
-/* getinfo.c */
+/* toem_getinfo.c */
 void info_rgef(info_t *);
 void in_forgst(info_t *, char **);
 void avail_inf(info_t *, int);
 
-/* environ.c */
+/* toem_environ.c */
 char *envst_get(info_t *, const char *);
 int myst_en(info_t *);
 int stenv_mys(info_t *);
 int myrt_enven(info_t *);
 int listpop_env(info_t *);
 
-/* getenv.c */
+/* toem_getenv.c */
 char **ench_get(info_t *);
 int set_envun(info_t *, char *);
 int liverg_set(info_t *, char *, char *);
 
-/* history.c */
+/* toem_history.c */
 char *getdf_all(info_t *info);
 int his_fgwrite(info_t *info);
 int his_rd(info_t *info);
 int bui_ls_his(info_t *info, char *buf, int linecount);
 int renth_tr(info_t *info);
 
-/* lists.c */
+/* toem_lists.c */
 list_t *nd_addth(list_t **, const char *, int);
 list_t *enad_notr(list_t **, const char *, int);
 size_t ls_printdf(const list_t *);
 int remove_nd_in(list_t **, unsigned int);
 void li_nd_free(list_t **);
 
-/* lists1.c */
+/* toem_lists1.c */
 size_t long_strze(const list_t *);
 char **chan_to_str(list_t *);
 size_t lesta_at_pint(const list_t *);
 list_t *bestr_nd(list_t *, char *, char);
 ssize_t in_deffer(list_t *, list_t *);
 
-/* vars.c */
+/* toem_vars.c */
 int chan_is_available(info_t *, char *, size_t *);
 void chan_is_check(info_t *, char *, size_t *, size_t, size_t);
 int alstr_rep(info_t *);
