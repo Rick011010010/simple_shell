@@ -2,8 +2,7 @@
 
 /**
  **cprg_st - copies a string
- *@dest: the destination 
- string to be copied to
+ *@dest: the destination string to be copied to
  *@src: the source string
  *@n: the amount of characters to be copied
  *Return: the concatenated string
@@ -32,8 +31,7 @@ char *cprg_st(char *dest, char *src, int n)
 }
 
 /**
- **catrg_st - 
- concatenates two strings
+ **catrg_st - concatenates two strings
  *@dest: the first string
  *@src: the second string
  *@n: the amount of bytes to be maximally used

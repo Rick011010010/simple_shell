@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * myst_en - prints the 
- * @info: Structure containing potential 
+ * myst_en - prints the current environment
+ * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
@@ -13,9 +13,8 @@ int myst_en(info_t *info)
 }
 
 /**
- * envst_get - gets the value of an environ 
- * variable
- * @info: Structure containing  arguments. Used to maintain
+ * envst_get - gets the value of an environ variable
+ * @info: Structure containing potential arguments. Used to maintain
  * @name: env var name
  *
  * Return: the value
@@ -36,8 +35,7 @@ char *envst_get(info_t *info, const char *name)
 }
 
 /**
- * stenv_mys - Initialize a new environment 
- * variable,
+ * stenv_mys - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
@@ -56,8 +54,7 @@ int stenv_mys(info_t *info)
 }
 
 /**
- * myrt_enven - Remove an environment 
- * variable
+ * myrt_enven - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  * Return: Always 0
@@ -78,8 +75,7 @@ int myrt_enven(info_t *info)
 }
 
 /**
- * listpop_env - populates env 
- * linked list
+ * listpop_env - populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * inter_active - if shell is inter_active mode returns true 
+ * inter_active - returns true if shell is inter_active mode
  * @info: struct address
  *
  * Return: 1 if inter_active mode, 0 otherwise
@@ -26,9 +26,9 @@ int delim_is(char c, char *delim)
 }
 
 /**
- * alpha_is - checks  alphabetic character
+ * alpha_is - checks for alphabetic character
  * @c: The character to input
- * Return: 1 if c is alphabetic, 
+ * Return: 1 if c is alphabetic, 0 otherwise
  */
 
 int alpha_is(int c)
@@ -40,10 +40,9 @@ int alpha_is(int c)
 }
 
 /**
- * atoi_is - converts a string 
- * to an integer
+ * atoi_is - converts a string to an integer
  * @s: the string to be converted
- * Return: 0 if no numbers in string, 
+ * Return: 0 if no numbers in string, converted number otherwise
  */
 
 int atoi_is(char *s)

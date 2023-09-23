@@ -2,7 +2,7 @@
 
 /**
  * scaprg - exits the shell
- * @info: Structure containing arguments
+ * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: exits with a given exit status
  * (0) if info.argv[0] != "exit"
@@ -31,7 +31,7 @@ int scaprg(info_t *info)
 
 /**
  * cmdrt_my - changes the current directory of the process
- * @info: Structure containing arguments
+ * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: Always 0
  */
@@ -80,9 +80,8 @@ int cmdrt_my(info_t *info)
 }
 
 /**
- * hand_st - changes the current 
- * directory of the process
- * @info: Structure containing arguments
+ * hand_st - changes the current directory of the process
+ * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: Always 0
  */
